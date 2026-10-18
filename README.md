@@ -1,13 +1,13 @@
 # RT-BE92U Stock Firmware: SSH Security and Health Audit
 
-Version 1.7.0 · 2026-10-14 · ASUS RT-BE92U · Asuswrt 3.0.0.6.102 (stock)
+Version 1.7.1 · 2026-10-18 · ASUS RT-BE92U · Asuswrt 3.0.0.6.102 (stock)
 
 A printable runbook for auditing an ASUS RT-BE92U on stock Asuswrt over SSH,
 from AyySSHush backdoor indicators and WAN exposure to firmware currency,
 DNS-over-TLS, Samba guest access and USB SSD TRIM. Eighteen graded checks
 each pair a check command with a pass rule and a fix; four INFO items record
 a baseline. Target firmware: 3.0.0.6.102_40497 or newer, the newest ASUS
-release as of 2026-10-14.
+release as of 2026-10-18.
 
 ## Files
 
@@ -17,8 +17,8 @@ release as of 2026-10-14.
 | `README.md` | This file |
 | `CHANGELOG.md` | Release history, newest first |
 
-**PDF checksum.** 133,255 B, SHA-256
-`9ce01a807db5d24867555de6a088c39b8da820aa11527d5d119639dd1a21e658`.
+**PDF checksum.** 133,267 B, SHA-256
+`fc66fafa5b88442d223dd1250d91745d33d4249ed7908758d03a201a13efe8de`.
 
 ## What Is Inside
 
@@ -63,7 +63,8 @@ Replace the placeholders listed in section 4.2, then follow section 3:
    then start again at step 1.
 4. Run C-02 and C-03, then the HIGH, MED, LOW and INFO items; after each
    fix, re-run that item's check and any Verify step it lists.
-5. Run the collector again, then take a second snapshot and diff the two.
+5. Run the collector again, then take a second snapshot and diff the two
+   (section 5).
 6. After the next reboot, run the collector once more; every value must
    persist.
 7. Fill in the STATE column and the verdict (section 2).
@@ -85,7 +86,7 @@ them on the host at mode 0600, never on the router's Samba share.
 
 ```fish
 begin
-    set -l want 9ce01a807db5d24867555de6a088c39b8da820aa11527d5d119639dd1a21e658
+    set -l want fc66fafa5b88442d223dd1250d91745d33d4249ed7908758d03a201a13efe8de
     set -l got (sha256sum rt-be92u-ssh-audit.pdf | string split -f1 -- ' ')
     test "$got" = "$want"; and echo MATCH; or echo MISMATCH
 end

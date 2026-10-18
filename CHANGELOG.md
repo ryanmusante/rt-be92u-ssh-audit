@@ -4,6 +4,15 @@ Changelog
 Newest first. Each version matches the one printed in the PDF.
 
 
+1.7.1 - 2026-10-18
+------------------
+
+  - scope: firmware status dated 2026-10-18; 102_40497 is still the newest
+  - C-01: evidence block runs inside begin/end, so its variable stays local;
+    the file is made 0600 before the first capture
+  - I-02: the re-plug check names where it runs (router)
+
+
 1.7.0 - 2026-10-14
 ------------------
 
@@ -58,8 +67,8 @@ Newest first. Each version matches the one printed in the PDF.
 1.5.0 - 2026-10-08
 ------------------
 
-  - conventions: if SSH is off, enable it LAN-only; otherwise change no
-    SSH setting before C-01 and the first snapshot record it
+  - conventions: if SSH is off, turn it on as LAN only; otherwise change
+    no SSH setting before C-01 and the first snapshot record it
   - setup: host alias pins IdentityFile and IdentitiesOnly; the GUI
     backup is saved with the remove-password box unticked
   - checks: C-01 and H-02 listener checks use netstat -lnt
